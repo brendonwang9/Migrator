@@ -1,0 +1,21 @@
+
+<h1>Properties in <%=suburb%></h1>
+
+<section class = properties>
+    <% properties.each do |property|%>
+    <article class = card>
+        <h1>  
+            <a href="/property/<%=property["property_id"]%>">
+                <%=property["address"]%>
+            </a>
+        </h1>   
+        <p>
+            <%=property["objective"]%>
+        </p>
+        <p>
+            <%= property["price"]%>
+        </p>
+        <img src="<%=property["image_url"]%>" alt="">
+        </article>
+    <%end%>
+</section>

@@ -1,0 +1,32 @@
+
+<h1>
+    <%= property["address"]%>
+</h1>
+<p>
+    <%=property["objective"]%>
+</p>
+<p>
+    <%= property["price"]%>
+</p>
+<img src="<%=property["image_url"]%>" alt="">
+<p>
+    <%= property["descriptions"]%>
+</p>
+<p>
+    Bedrooms: <%= property["bedrooms"]%>
+    Bathrooms: <%= property["bathrooms"]%>
+</p>
+<%if logged_in?%>
+    <form action="/myproperties" method = "post">
+        <input type="hidden" name = "property_id" value = "<%=property["property_id"]%>">
+        <input type="hidden" name = "suburb" value = <%=property["suburb"]%>>
+        <button>Bookmark Property</button>
+    </form>
+    <%if bookmarked?(property["property_id"])%>
+        <form action="/myproperties" method = "post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name = "property_id" value = "<%=property["property_id"]%>">
+            <button>Delete Bookmark</button>
+        </form>
+    <%end%>
+<%end%>

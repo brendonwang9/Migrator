@@ -1,0 +1,61 @@
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+<link rel="stylesheet" href="graphs.css">
+<h1>
+  <a href="/properties/<%=suburb%>">Find Properties in <%=suburb%> </a>
+</h1>
+
+<% demographics.each_with_index do |stat, index| %>
+  <p class = "stat"><%=stat["type"]%></p>
+  <%stat["items"].each do |values| %>
+      <p class = "xValues<%=index%>"><%= values["label"] %></p>
+      <p class = "yValues<%=index%>"><%= values["value"]%></p>
+  <%end%>
+  <canvas id="myChart<%=index%>" style="width:100%;max-width:700px;margin:0 auto"></canvas>
+<%end %>
+
+<script>
+stat = document.querySelectorAll(`.stat`)
+xValues = []
+yValues = []
+var barColors = [ "green",  "orange", "red", "blue", "yellow",  "brown", "purple", "Turquoise"];
+for(let i=0; i<3; i++) { 
+  barColors = barColors.concat(barColors)
+} // need more colors without having to think of more colours
+
+for(let i=0; i<3; i++) { 
+  // create nested array of x and y values and then plot them using the chart function from cloudflare
+  var xValueElements = document.querySelectorAll(`.xValues${i}`)
+  var yValueElements = document.querySelectorAll(`.yValues${i}`)
+  xValues.push([])
+  yValues.push([])
+
+  xValueElements.forEach(function(element){
+    xValues[i].push(element.textContent)
+  })
+  
+  yValueElements.forEach(function(element){
+    yValues[i].push(element.textContent)
+  })
+
+  new Chart(`myChart${i}`, {
+    type: "bar",
+    data: {
+      labels: xValues[i],
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues[i]
+      }]
+    },
+    options: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: `${stat[i].textContent} in <%=suburb%>`
+        // ruby code can be used in the object but stat variable needs to be in js since the ruby code will not register index i
+      }
+    }
+  });
+}
+</script>

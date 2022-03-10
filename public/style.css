@@ -1,0 +1,19 @@
+body {
+    background-color: lightblue;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+img {
+    width: 60%;
+}
+
+.properties {
+    border-radius: solid green;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card {
+    box-shadow: rgb(80 78 78 / 50%) 3px 3px 20px;
+}
