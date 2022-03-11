@@ -1,8 +1,8 @@
 # Migrator CRUD app 
 
-Demo: https://nswmigrator.herokuapp.com/
-TechStack: Ruby, SQL, Chart.js, Heroku
-Goal: Convince my parents to buy me a property in ryde 
+Demo: https://nswmigrator.herokuapp.com/ \
+TechStack: Ruby, SQL, Chart.js, Heroku\
+Goal: Convince my parents to buy me a property in ryde \
 
 App Features: 
 - View suburb/demographic data from Domain.com.au API
