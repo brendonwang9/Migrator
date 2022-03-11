@@ -1,16 +1,18 @@
-# Migrator
+# Migrator CRUD app 
 
-https://nswmigrator.herokuapp.com/
+Demo: https://nswmigrator.herokuapp.com/
+TechStack: Ruby, SQL, Chart.js, Heroku
+Goal: Convince my parents to buy me a property in ryde 
 
-CRUD app 
+App Features: 
+- View suburb/demographic data from Domain.com.au API
+- View properties from Domain.com.au API 
+- Properties information are generated from Domain.com.au API and currently only supports ryde 
+- Login Feature with ability to bookmark, review and delete properties
+- Create admin users using passcode(iamadmin). Admins may add properties to website using property IDs found on Domain.com.au 
+https://www.domain.com.au/6-2-6-william-street-ryde-nsw-2112-2017578745 => **property ID = 2017578745**
 
 
-View suburb/demographic data using Domain.com.au API
-View properties from suburbs using Domain.com.au API 
-- supports ryde properties only because its a nice place 
 
-Login users
-- admin users may add properties via Domain.com.au API id (https://www.domain.com.au/6-2-6-william-street-ryde-nsw-2112-2017578745 => **property ID = 2017578745**)
-- users can bookmark properties for later
 
-RUBY client-side and PSQL server-side 
+
